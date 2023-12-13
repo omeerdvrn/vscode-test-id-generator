@@ -45,30 +45,26 @@ function addTestDataAttributes() {
       const attributeKeyword = config.attributeKeyword || 'data-test'
 
       let modifiedText = text.replace(
-        /<([-\w]+)(?:[^>]*\sid=["'](.*?)["'])?[^>]*\/?>/g,
-        (match, elementName, elementId) => {
+        /<([-\w]+)([^>]*)\/?>/g,
+        (match, elementName, attributes) => {
           console.log('Element Name:', elementName)
-          console.log('Element ID:', elementId)
 
+          // Skip adding test ID if the element is in the ignore list
           if (config.ignoreElements.includes(elementName)) {
             return match
           }
 
-          const isSelfClosing = match.endsWith('/>')
+          const existingAttributes = attributes.trim()
+          const testId = existingAttributes.includes('id=')
+            ? getIdFromElement(existingAttributes)
+            : 'default-test-id'
 
-          const testId = elementId
-            ? elementId
-            : elementName.concat('-' + config.defaultTestId)
-
+          console.log('Existing Attributes:', existingAttributes)
           console.log('Test ID:', testId)
-          if (elementId) {
-            return `<${elementName} id="${elementId}" ${attributeKeyword}="${testId}" ${
-              isSelfClosing ? '/' : ''
-            }>`
-          } else
-            return `<${elementName} ${attributeKeyword}="${testId}" ${
-              isSelfClosing ? '/' : ''
-            }>`
+          if (existingAttributes.includes(attributeKeyword))
+            return `<${elementName} ${existingAttributes}>`
+
+          return `<${elementName} ${attributeKeyword}="${testId}" ${existingAttributes}>`
         }
       )
 
@@ -87,6 +83,11 @@ function addTestDataAttributes() {
   } else {
     vscode.window.showErrorMessage('No active text editor found.')
   }
+}
+
+function getIdFromElement(attributes) {
+  const idMatch = attributes.match(/\bid=["'](.*?)["']/)
+  return idMatch ? idMatch[1] : null
 }
 
 function deactivate() {}
