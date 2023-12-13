@@ -15,3 +15,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [1.1.2]
 
 - Bug fix.
+
+## [1.1.3]
+
+- Update README.
