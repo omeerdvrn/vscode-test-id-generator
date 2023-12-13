@@ -7,7 +7,7 @@ This extension is built to make the test-id addition process easier while coding
 
 ## Getting Started
 ### Installation
-- Visual Studio Code Marketplace
+- [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=omeerdvrn.test-id-generator)
 
 #### Via Visual Studio Code
 
