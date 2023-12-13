@@ -2,6 +2,9 @@
   "name": "test-id-generator",
   "displayName": "Test ID Generator",
   "publisher": "omeerdvrn",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/omeerdvrn/vscode-test-id-generator"},
   "description": "It is an extension to generate test ID's.",
   "version": "0.0.1",
   "engines": {
