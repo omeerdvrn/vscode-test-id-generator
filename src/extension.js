@@ -45,7 +45,7 @@ function addTestDataAttributes() {
       const attributeKeyword = config.attributeKeyword || 'data-test'
 
       let modifiedText = text.replace(
-        /<([-\w]+)(?:[^>]*\sid=["'](.*?)["'])?[^>]*>/g,
+        /<([-\w]+)(?:[^>]*\sid=["'](.*?)["'])?[^>]*\/?>/g,
         (match, elementName, elementId) => {
           console.log('Element Name:', elementName)
           console.log('Element ID:', elementId)
@@ -54,14 +54,21 @@ function addTestDataAttributes() {
             return match
           }
 
+          const isSelfClosing = match.endsWith('/>')
+
           const testId = elementId
             ? elementId
             : elementName.concat('-' + config.defaultTestId)
 
           console.log('Test ID:', testId)
           if (elementId) {
-            return `<${elementName} id="${elementId}" ${attributeKeyword}="${testId}">`
-          } else return `<${elementName} ${attributeKeyword}="${testId}">`
+            return `<${elementName} id="${elementId}" ${attributeKeyword}="${testId}" ${
+              isSelfClosing ? '/' : ''
+            }>`
+          } else
+            return `<${elementName} ${attributeKeyword}="${testId}" ${
+              isSelfClosing ? '/' : ''
+            }>`
         }
       )
 
