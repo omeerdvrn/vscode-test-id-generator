@@ -1,6 +1,14 @@
 #  Test ID Generator
+![Test ID Generator](assets/icon.png)
+## Overview
 
-This extension is built to make the test-id addition process easier while coding.
+The Test ID Generator is a Visual Studio Code extension designed to simplify the process of adding test identifiers (data-test attributes) to HTML elements in web development projects. If your codebase lacks test IDs and you find yourself spending valuable time manually adding them, this extension is here to be your time-saving ally.
+
+## Key Features
+- Effortlessly assign test IDs to HTML elements with a simple keyboard shortcut.
+- Customize the test ID attribute keyword via a user-configurable .testidrc.json file.
+- Intelligent generation of test IDs from existing element IDs for a seamless testing experience.
+- Support for various file types, including HTML, Vue, and JSX.
 
 ## Demo Preview
 <img src="./assets/sample.gif" />
@@ -57,8 +65,8 @@ The `ignoreElements` is for not adding test id to all the html elements. (`<temp
 ```
 
 ## Contribution
-Bug reports and pull requests are welcome on GitHub at https://github.com/omeerdvrn/vscode-test-id-generator. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct
+I believe in the power of collaboration! This project is open to contributions from the community. If you're passionate about testing in web development and want to contribute, check out the project on [GitHub](https://github.com/omeerdvrn/vscode-test-id-generator), and let's build something amazing together! 🤝✨
 
 
 ## License
-The repo is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+This project is licensed under the [MIT License](http://opensource.org/licenses/MIT).
