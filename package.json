@@ -1,0 +1,49 @@
+{
+  "name": "test-id-generator",
+  "displayName": "Test ID Generator",
+  "publisher": "omeerdvrn",
+  "description": "It is an extension to generate test ID's.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:test-id-generator.addTestDataAttributesKeybinding"
+  ],
+  "main": "src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "test-id-generator.addTestDataAttributesKeybinding",
+        "title": "Add Test IDs"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "test-id-generator.addTestDataAttributesKeybinding",
+        "key": "shift+alt+t",
+        "mac": "cmd+shift+t",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.85.0",
+    "@vscode/test-cli": "^0.0.4",
+    "@vscode/test-electron": "^2.3.8",
+    "eslint": "^8.54.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.2"
+  }
+}
