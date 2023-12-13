@@ -57,10 +57,11 @@ function addTestDataAttributes() {
           const existingAttributes = attributes.trim()
           const testId = existingAttributes.includes('id=')
             ? getIdFromElement(existingAttributes)
-            : 'default-test-id'
+            : elementName + '-' + config.defaultTestId
 
           console.log('Existing Attributes:', existingAttributes)
           console.log('Test ID:', testId)
+
           if (existingAttributes.includes(attributeKeyword))
             return `<${elementName} ${existingAttributes}>`
 

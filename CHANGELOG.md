@@ -12,6 +12,6 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - Add support for self closing elements.
 
-## [1.1.1]
+## [1.1.2]
 
 - Bug fix.
