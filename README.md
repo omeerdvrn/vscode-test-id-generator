@@ -1,65 +1,64 @@
-# test-id-generator README
+#  Test ID Generator
 
-This is the README for your extension "test-id-generator". After writing up a brief description, we recommend including the following sections.
+This extension is built to make the test-id addition process easier while coding.
 
-## Features
+## Demo Preview
+<img src="./assets/sample.gif" />
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## Getting Started
+### Installation
+- Visual Studio Code Marketplace
 
-For example if there is an image subfolder under your extension project workspace:
+#### Via Visual Studio Code
 
-\!\[feature X\]\(images/feature-x.png\)
+Launch *Quick Open*:
+  - <img src="https://www.kernel.org/theme/images/logos/favicon.png" width=16 height=16/> <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf">Linux</a> `Ctrl+P`
+  - <img src="https://developer.apple.com/favicon.ico" width=16 height=16/> <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf">macOS</a> `⌘P`
+  - <img src="https://www.microsoft.com/favicon.ico" width=16 height=16/> <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf">Windows</a> `Ctrl+P`
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 
-## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+Paste the following command and press `Enter`.:
+```shell
+ext install test-id-generator
+```
 
-## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+### Usage
 
-For example:
+By default Shift + Alt + T (Cmd + Shift + T for Mac) key combination inserts test id to all the html elements.
 
-This extension contributes the following settings:
+It checks the element for the id first. If the element has it, it copies it to the test id. If the element has not, it generates the test id by adding elementName to the `defaultTestId` from the config.
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+The `attributeKeyword` is for test id attribute (`data-test`, `data-test-id`, `test-id` ...)
 
-## Known Issues
+The `ignoreElements` is for not adding test id to all the html elements. (`<template>`, `<script>`, `<style>` ...)
+#### Config
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+``` javascript 
+// .testidrc.json
+{
+  "attributeKeyword": "data-test-id",
+  "ignoreElements": [
+    "template",
+    "script",
+    "style",
+    "body",
+    "head",
+    "html",
+    "header",
+    "footer",
+    "meta",
+    "title",
+    "link"
+  ],
+  "defaultTestId": "test"
+}
+```
 
-## Release Notes
+## Contribution
+Bug reports and pull requests are welcome on GitHub at https://github.com/omeerdvrn/vscode-test-id-generator. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct
 
-Users appreciate release notes as you update your extension.
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+## License
+The repo is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
