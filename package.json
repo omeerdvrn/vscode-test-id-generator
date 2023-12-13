@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/omeerdvrn/vscode-test-id-generator"},
   "description": "It is an extension to generate test ID's.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.85.0"
   },
